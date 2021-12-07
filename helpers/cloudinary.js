@@ -7,12 +7,12 @@ cloudinary.config({
   });
 
 module.exports = {
-    upload: (filepath) => {
-        // cloudinary.v2.uploader.upload(
-        //     "https://upload.wikimedia.org/wikipedia/commons/a/ae/Olympic_flag.jpg",
-        //     { public_id: "olympic_flag" }, 
-        //     function(error, result) {console.log(result); 
-        // });
-        console.log('cloudinaryuploadcalled')
+    upload: (public_id) => {
+        return cloudinary.uploader.upload(
+            "https://avatars.githubusercontent.com/u/32621882?v=4",
+            { public_id: public_id }, 
+            function(error, result) {
+                console.log(result); 
+        });
     } 
 }
