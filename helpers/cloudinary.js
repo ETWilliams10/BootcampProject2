@@ -1,4 +1,4 @@
-let cloudinary = require('cloudinary').v2;
+let cloudinary = require('cloudinary');
 
 cloudinary.config({ 
     cloud_name: 'dfxkbycx2', 
@@ -8,11 +8,17 @@ cloudinary.config({
 
 module.exports = {
     upload: (public_id) => {
-        return cloudinary.uploader.upload(
+        return cloudinary.v2.uploader.upload(
             "https://avatars.githubusercontent.com/u/32621882?v=4",
             { public_id: public_id }, 
             function(error, result) {
                 console.log(result); 
         });
-    } 
+    },
+    
+    fetchGallery: () => {
+        return cloudinary.v2.search
+            .expression('folder=canvas_project_2')
+            .execute();
+    }
 }
