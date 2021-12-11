@@ -23,6 +23,6 @@ const gallerydata = [
   },
 ];
 
-const seedGallery = () => Gallery.bulkCreate(gallerydata);
+const seedGallery = async () => await Gallery.bulkCreate(gallerydata);
 
 module.exports = seedGallery;
