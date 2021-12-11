@@ -55,8 +55,9 @@ router.get('/gallery/:id', async (req, res) => {
 // GET one painting
 router.get('/painting/:id', async (req, res) => {
   try {
-    const dbPaintingData = await Painting.findByPk(req.params.id);
 
+    const dbPaintingData = await Painting.findByPk(req.params.id);
+    console.log({ dbPaintingData })
     const painting = dbPaintingData.get({ plain: true });
 
     res.render('painting', { painting });
